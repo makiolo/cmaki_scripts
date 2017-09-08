@@ -49,6 +49,8 @@ if (is_win)
 else
 {
 	console.log("env CMAKI_PWD = " + process.env['CMAKI_PWD']);
+	console.log("cwd = " + process.cwd());
+	console.log("__dirname = " + __dirname);
 	if(fs.existsSync(path.join(process.env['CMAKI_PWD'], script+".sh")))
 	{
 		dir_script = process.env['CMAKI_PWD'];
