@@ -42,7 +42,7 @@ if (is_win)
 	}
 	else
 	{
-		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki');
+		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki_scripts');
 	}
 }
 else
@@ -53,7 +53,7 @@ else
 	}
 	else
 	{
-		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki');
+		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki_scripts');
 	}
 }
 
