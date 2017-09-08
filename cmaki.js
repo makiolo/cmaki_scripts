@@ -48,6 +48,7 @@ if (is_win)
 }
 else
 {
+	console.log("cwd == " + process.cwd());
 	console.log("__dirname == " + __dirname);
 	console.log("script == " + script);
 	if(fs.existsSync(path.join(__dirname, script+".sh")))
