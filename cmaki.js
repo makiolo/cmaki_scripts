@@ -35,9 +35,9 @@ var dir_script;
 var script = process.argv[2];
 if (is_win)
 {
-	if(fs.existsSync(path.join(__dirname, script+".cmd")))
+	if(fs.existsSync(path.join(process.cwd(), script+".cmd")))
 	{
-		dir_script = __dirname;
+		dir_script = process.cwd();
 		console.log("1. dir_script == " + dir_script);
 	}
 	else
@@ -48,12 +48,9 @@ if (is_win)
 }
 else
 {
-	console.log("cwd == " + process.cwd());
-	console.log("__dirname == " + __dirname);
-	console.log("script == " + script);
-	if(fs.existsSync(path.join(__dirname, script+".sh")))
+	if(fs.existsSync(path.join(process.cwd(), script+".sh")))
 	{
-		dir_script = __dirname;
+		dir_script = process.cwd();
 		console.log("3. dir_script == " + dir_script);
 	}
 	else
