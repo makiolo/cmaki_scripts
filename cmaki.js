@@ -3,11 +3,10 @@ var os = require('os')
 var fs = require('fs');
 var path = require('path')
 var shelljs = require('shelljs');
-var exec = shelljs.exec;
 
 if(!process.env.CMAKI_PWD)
 {
-	if (fs.existsSync(path.join("..", "..", "node_modules", "cmaki_identifier"))) {
+	if (fs.existsSync(path.join("..", "..", "node_modules", "cmaki_scripts"))) {
 		shelljs.env['CMAKI_PWD'] = path.join(process.cwd(), '..', '..');
 		process.env['CMAKI_PWD'] = path.join(process.cwd(), '..', '..');
 	} else {
@@ -17,7 +16,7 @@ if(!process.env.CMAKI_PWD)
 }
 if(!process.env.CMAKI_INSTALL)
 {
-	if (fs.existsSync(path.join("..", "..", "node_modules", "cmaki_identifier"))) {
+	if (fs.existsSync(path.join("..", "..", "node_modules", "cmaki_scripts"))) {
 		shelljs.env['CMAKI_INSTALL'] = path.join(process.cwd(), '..', '..', 'bin');
 		process.env['CMAKI_INSTALL'] = path.join(process.cwd(), '..', '..', 'bin');
 	} else {
@@ -39,10 +38,12 @@ if (is_win)
 	if(fs.existsSync(path.join(__dirname, script+".cmd")))
 	{
 		dir_script = __dirname;
+		console.log("1. dir_script == " + dir_script);
 	}
 	else
 	{
 		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki_scripts');
+		console.log("2. dir_script == " + dir_script);
 	}
 }
 else
@@ -50,10 +51,12 @@ else
 	if(fs.existsSync(path.join(__dirname, script+".sh")))
 	{
 		dir_script = __dirname;
+		console.log("3. dir_script == " + dir_script);
 	}
 	else
 	{
 		dir_script = path.join(process.cwd(), '..', 'node_modules', 'cmaki_scripts');
+		console.log("4. dir_script == " + dir_script);
 	}
 }
 
@@ -74,7 +77,7 @@ else
 
 if(exists)
 {
-	var child = exec(caller_execute + script_execute, {async:true, silent:true}, function(err, stdout, stderr) {
+	var child = shelljs.exec(caller_execute + script_execute, {async:true, silent:true}, function(err, stdout, stderr) {
 		process.exit(err);
 	});
 	child.stdout.on('data', function(data) {
@@ -87,4 +90,6 @@ if(exists)
 else
 {
 	console.log("[error] dont exits: " + script_execute);
+	process.exit(1);
 }
+
