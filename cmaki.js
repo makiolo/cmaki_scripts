@@ -48,6 +48,8 @@ if (is_win)
 }
 else
 {
+	console.log("__dirname == " + __dirname);
+	console.log("script == " + script);
 	if(fs.existsSync(path.join(__dirname, script+".sh")))
 	{
 		dir_script = __dirname;
