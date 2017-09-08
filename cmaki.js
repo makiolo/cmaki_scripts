@@ -38,28 +38,28 @@ if (is_win)
 	if(fs.existsSync(path.join(process.cwd(), script+".cmd")))
 	{
 		dir_script = process.cwd();
-		console.log("1. dir_script == " + dir_script);
+		// console.log("1. dir_script == " + dir_script);
 	}
 	else
 	{
 		dir_script = path.join(process.env['CMAKI_PWD'], 'node_modules', 'cmaki_scripts');
-		console.log("2. dir_script == " + dir_script);
+		// console.log("2. dir_script == " + dir_script);
 	}
 }
 else
 {
-	console.log("env CMAKI_PWD = " + process.env['CMAKI_PWD']);
-	console.log("cwd = " + process.cwd());
-	console.log("__dirname = " + __dirname);
+	// console.log("env CMAKI_PWD = " + process.env['CMAKI_PWD']);
+	// console.log("cwd = " + process.cwd());
+	// console.log("__dirname = " + __dirname);
 	if(fs.existsSync(path.join(process.cwd(), script+".sh")))
 	{
 		dir_script = process.cwd();
-		console.log("3. dir_script == " + dir_script);
+		// console.log("3. dir_script == " + dir_script);
 	}
 	else
 	{
 		dir_script = path.join(process.env['CMAKI_PWD'], 'node_modules', 'cmaki_scripts');
-		console.log("4. dir_script == " + dir_script);
+		// console.log("4. dir_script == " + dir_script);
 	}
 }
 
