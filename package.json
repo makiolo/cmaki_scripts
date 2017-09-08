@@ -6,15 +6,7 @@
     "test": "tests"
   },
   "bin": {
-    "cmaki": "./cmaki.js",
-	"init.sh": "./init.sh",
-	"ci.sh": "./ci.sh",
-	"install.sh": "./install.sh",
-	"clean.sh": "./clean.sh",
-	"setup.sh": "./setup.sh",
-	"compile.sh": "./compile.sh",
-	"tests.sh": "./tests.sh",
-	"upload.sh": "./upload.sh"
+    "cmaki": "./cmaki.js"
   },
   "repository": {
     "type": "git",
