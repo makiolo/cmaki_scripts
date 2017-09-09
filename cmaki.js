@@ -34,6 +34,16 @@ else
 	shelljs.env['CMAKI_INSTALL'] = process.env['CMAKI_INSTALL'];
 }
 
+if(!process.env.MODE)
+{
+	shelljs.env['MODE'] = 'Debug';
+	process.env['MODE'] = 'Debug';
+}
+else
+{
+	shelljs.env['MODE'] = process.env['MODE'];
+}
+
 function trim(s)
 {
 	return ( s || '' ).replace( /^\s+|\s+$/g, '' );
