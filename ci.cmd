@@ -1,8 +1,7 @@
 @echo off
 
 echo [0/3] preinstall
-set CMAKI_PWD=%CD%
-set PATH=%CMAKI_PWD%\node_modules\cmaki;%PATH%
+set PATH=%CMAKI_PWD%\node_modules\cmaki_scripts;%PATH%
 env | sort
 
 pip install pyyaml
@@ -14,8 +13,8 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 if exist package.json (
   
   echo [1/3] prepare
-  npm install -g npm-check-updates
-  call ncu -u
+  :: npm install -g npm-check-updates
+  :: call ncu -u
   
   echo [2/3] compile
   npm install
@@ -28,16 +27,16 @@ if exist package.json (
 ) else (
 
   echo [1/3] prepare
-  if exist node_modules\cmaki (rmdir /s /q node_modules\cmaki)
-  powershell -c "$source = 'https://raw.githubusercontent.com/makiolo/cmaki/master/bootstrap.cmd'; $dest = $env:TEMP + '\bootstrap.cmd'; $WebClient = New-Object System.Net.WebClient; $WebClient.DownloadFile($source,$dest); Invoke-Expression $dest"
+  if exist node_modules\cmaki_scripts (rmdir /s /q node_modules\cmaki_scripts)
+  powershell -c "$source = 'https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/bootstrap.cmd'; $dest = $env:TEMP + '\bootstrap.cmd'; $WebClient = New-Object System.Net.WebClient; $WebClient.DownloadFile($source,$dest); Invoke-Expression $dest"
   if %errorlevel% neq 0 exit /b %errorlevel%
 
   echo [2/3] compile
-  call node_modules\cmaki\install.cmd
+  call node_modules\cmaki_scripts\install.cmd
   if %errorlevel% neq 0 exit /b %errorlevel%
 
   echo [3/3] run tests
-  call node_modules\cmaki\tests.cmd
+  call node_modules\cmaki_scripts\tests.cmd
   if %errorlevel% neq 0 exit /b %errorlevel%
 
 )
