@@ -2,8 +2,8 @@
 set -e
 
 echo [0/3] preinstall
-export NOCACHE_LOCAL=TRUE
-export NOCACHE_REMOTE=FALSE
+export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
+export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
 env | sort
 
 pip install --user pyyaml
