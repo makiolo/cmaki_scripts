@@ -5,5 +5,5 @@ export YMLFILE=$CMAKI_PWD/cmaki.yml
 export MODE="${MODE:-Debug}"
 
 cd $(pwd)/node_modules/cmaki_generator
-./build ${PACKAGE} --yaml=${YMLFILE} --server=http://artifacts.myftp.biz:8080
+MODE=Debug ./build ${PACKAGE} --yaml=${YMLFILE} --server=http://artifacts.myftp.biz:8080
 
