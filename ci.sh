@@ -10,6 +10,10 @@ pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
 
+if [[ -d "node_modules" ]]; then
+  rm -Rf node_modules
+fi
+
 if [ -f "package.json" ]; then
 
   echo [1/3] prepare
@@ -44,4 +48,3 @@ if [ -f "cmaki.yml" ]; then
     ./node_modules/cmaki_scripts/upload.sh
   fi
 fi
-
