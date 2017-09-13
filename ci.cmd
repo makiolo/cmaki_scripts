@@ -15,6 +15,10 @@ if exist package.json (
   echo [1/3] prepare
   :: npm install -g npm-check-updates
   :: call ncu -u
+  npm install cmaki
+  npm install cmaki_scripts
+  npm install cmaki_generator
+  npm install cmaki_identifier
   
   echo [2/3] compile
   npm install
@@ -43,6 +47,6 @@ if exist package.json (
 
 if exist "cmaki.yml" (
   echo [4/3] upload artifact
-  # IDEA: interesting autogenerate cmaki.yml from package.json
+  :: IDEA: interesting autogenerate cmaki.yml from package.json
   echo TODO: generate artifact and upload with cmaki_generator
 )
