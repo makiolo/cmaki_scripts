@@ -21,13 +21,8 @@ else
 
 if(!process.env.CMAKI_INSTALL)
 {
-	if (fs.existsSync(path.join("..", "..", "node_modules", "cmaki_scripts"))) {
-		shelljs.env['CMAKI_INSTALL'] = path.join(process.cwd(), '..', '..', 'bin');
-		process.env['CMAKI_INSTALL'] = path.join(process.cwd(), '..', '..', 'bin');
-	} else {
-		shelljs.env['CMAKI_INSTALL'] = path.join(process.cwd(), 'bin');
-		process.env['CMAKI_INSTALL'] = path.join(process.cwd(), 'bin');
-	}
+	shelljs.env['CMAKI_INSTALL'] = path.join(process.env['CMAKI_PWD'], 'bin');
+	process.env['CMAKI_INSTALL'] = path.join(process.env['CMAKI_PWD'], 'bin');
 }
 else
 {
