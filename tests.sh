@@ -7,10 +7,11 @@ export CPPCHECK="${CPPCHECK:-FALSE}"
 export CC="${CC:-gcc}"
 export CXX="${CXX:-g++}"
 export MODE="${MODE:-Debug}"
+export COMPILER_BASENAME=$(basename ${CC})
 
-echo "running in mode $MODE ... ($CC / $CXX)"
-mkdir -p $CC/$MODE
-cd $CC/$MODE
+echo "running in mode $MODE ... ($COMPILER_BASENAME)"
+mkdir -p $COMPILER_BASENAME/$MODE
+cd $COMPILER_BASENAME/$MODE
 
 # tests
 ctest . --no-compress-output --output-on-failure -T Test -C $MODE -V
@@ -44,7 +45,7 @@ fi
 if [ "$CPPCHECK" == "TRUE" ]; then
 	if [[ "$CC" == "gcc" ]]; then
 		if [[ "$MODE" == "Debug" ]]; then
-			cppcheck -i ../../node_modules -i ../../$CC --inconclusive --check-config --max-configs=10 --enable=all -UDEBUG --inline-suppr ../..
+			cppcheck -i ../../node_modules -i ../../$COMPILER_BASENAME --inconclusive --check-config --max-configs=10 --enable=all -UDEBUG --inline-suppr ../..
 		fi
 	fi
 fi
