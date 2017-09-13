@@ -2,7 +2,7 @@
 set -e
 
 echo [0/3] preinstall
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash --
+sudo yum install npm
 pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
