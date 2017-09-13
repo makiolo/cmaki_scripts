@@ -2,7 +2,8 @@
 set -e
 
 echo [0/3] preinstall
-sudo yum install npm
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+sudo apt-get install -y nodejs
 pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
