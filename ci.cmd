@@ -15,10 +15,10 @@ if exist package.json (
   echo [1/3] prepare
   :: npm install -g npm-check-updates
   :: call ncu -u
-  npm install cmaki
-  npm install cmaki_scripts
-  npm install cmaki_generator
-  npm install cmaki_identifier
+  npm install https://github.com/makiolo/cmaki
+  npm install https://github.com/makiolo/cmaki_scripts
+  npm install https://github.com/makiolo/cmaki_generator
+  npm install https://github.com/makiolo/cmaki_identifier
   
   echo [2/3] compile
   npm install
