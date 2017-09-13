@@ -2,13 +2,14 @@
 set -e
 
 echo [0/3] preinstall
-export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
-export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
-env | sort
-
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash --
 pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
+
+export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
+export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
+env | sort
 
 if [[ -d "node_modules" ]]; then
   rm -Rf node_modules
