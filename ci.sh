@@ -41,7 +41,7 @@ if [ -f "package.json" ]; then
   npm install https://github.com/makiolo/cmaki_identifier
 
   echo [2/3] compile
-  npm install
+  npm install --verbose
 
   echo [3/3] run tests
   npm test
