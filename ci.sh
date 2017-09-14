@@ -2,8 +2,16 @@
 set -e
 
 echo [0/3] preinstall
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-sudo apt-get install -y nodejs
+if [[ "$OSTYPE" =~ ^linux ]]; then
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+  sudo apt-get install -y nodejs
+else
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew update
+  brew doctor
+  export PATH="/usr/local/bin:$PATH"
+  brew install node
+fi
 pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
