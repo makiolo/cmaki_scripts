@@ -3,6 +3,8 @@ set -e
 
 echo [0/3] preinstall
 if [[ "$OSTYPE" =~ ^linux ]]; then
+  sudo add-apt-repository ppa:george-edison55/cmake-3.x --yes
+  sudo apt-get update
   curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
   sudo apt-get install -y nodejs
   sudo apt-get install -y cmake
