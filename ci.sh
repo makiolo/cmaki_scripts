@@ -3,13 +3,18 @@ set -e
 
 echo [0/3] preinstall
 if [[ "$OSTYPE" =~ ^linux ]]; then
-  sudo add-apt-repository ppa:george-edison55/cmake-3.x --yes
-  sudo apt-get update
   curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-  sudo apt-get install -y nodejs
-  sudo apt-get install -y cmake
-  sudo apt-get install -y lcov
-  sudo apt-get install -y cppcheck
+  sudo apt install -y nodejs
+  sudo apt install -y lcov
+  sudo apt install -y cppcheck
+  sudo apt install -y openssl libssl-dev
+  # cmake 3.5
+  wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
+  tar -zxvf cmake-3.7.2.tar.gz
+  cd cmake-3.7.2
+  ./configure
+  make -j16
+  sudo make install
 else
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
