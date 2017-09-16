@@ -11,15 +11,11 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	# cmake 3.5
 	wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
 	tar -zxvf cmake-3.7.2.tar.gz
-	pwd
 	cd cmake-3.7.2
 	CC=gcc CXX=g++ ./configure --prefix=/usr/local
 	make -j16
 	sudo make install
 	cd ..
-	pwd
-	cmake --version
-	qemu-system-arm -machine help
 else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
