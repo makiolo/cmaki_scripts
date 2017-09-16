@@ -16,7 +16,6 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	make -j16
 	sudo make install
 	cd ..
-	qemu-arm --help
 	qemu-arm -cpu help
 else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
