@@ -15,6 +15,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	CC=gcc CXX=g++ ./configure
 	make -j16
 	sudo make install
+	cd -
 else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
