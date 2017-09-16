@@ -12,7 +12,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
 	tar -zxvf cmake-3.7.2.tar.gz
 	cd cmake-3.7.2
-	./configure
+	CC=gcc CXX=g++ ./configure
 	make -j16
 	sudo make install
 else
