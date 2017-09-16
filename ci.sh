@@ -19,6 +19,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	cd ..
 	pwd
 	cmake --version
+	qemu-system-arm -machine help
 else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
