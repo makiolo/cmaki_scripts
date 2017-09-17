@@ -44,10 +44,19 @@ function trim(s)
 	return ( s || '' ).replace( /^\s+|\s+$/g, '' );
 }
 
+var environment_vars = [];
+next_is_environment_var = false;
 process.argv.forEach(function(val, index, array)
 {
-	console.log(index + ': ' + val);
+	if(next_is_environment_var)
+	{
+		environment_vars.push(val);
+	}
+	next_is_environment_var = (val == '-e');
 });
+console.log("-------------")
+console.log(environment_vars);
+console.log("-------------")
 
 var is_win = (os.platform() === 'win32');
 var dir_script;
