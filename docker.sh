@@ -2,6 +2,7 @@
 export IMAGE="${IMAGE:-linux-x64}"
 export MODE="${MODE:-Debug}"
 
+git clone -q https://github.com/dockcross/dockcross.git
 sudo docker run --rm dockcross/$IMAGE > ./dockcross-$IMAGE
 chmod +x ./dockcross-$IMAGE
 export CMAKI_EMULATOR=$(sudo ./dockcross-$IMAGE bash -c 'echo "message(\${CMAKE_CROSSCOMPILING_EMULATOR})" >> ${CMAKE_TOOLCHAIN_FILE} && cmake -P ${CMAKE_TOOLCHAIN_FILE}')
