@@ -54,9 +54,13 @@ process.argv.forEach(function(val, index, array)
 	}
 	next_is_environment_var = (val == '-e');
 });
-console.log("-------------")
-console.log(environment_vars);
-console.log("-------------")
+environment_vars.forEach(function(val, index, array)
+{
+	console.log("--------------")
+	var chunks = val.split("=");
+	console.log(chunks);
+	console.log("--------------")
+});
 
 var is_win = (os.platform() === 'win32');
 var dir_script;
