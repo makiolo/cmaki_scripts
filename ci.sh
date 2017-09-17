@@ -7,9 +7,9 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	sudo apt install -y nodejs
 	sudo apt install -y lcov
 	sudo apt install -y cppcheck
-	sudo apt install -y g++
 
 	# # cmake 3.5 from source
+	# sudo apt install -y g++
 	# wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
 	# tar -zxvf cmake-3.7.2.tar.gz
 	# if [[ -d "cmake-3.7.2" ]]; then
