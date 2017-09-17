@@ -44,6 +44,11 @@ function trim(s)
 	return ( s || '' ).replace( /^\s+|\s+$/g, '' );
 }
 
+process.argv.forEach(function(val, index, array)
+{
+	console.log(index + ': ' + val);
+});
+
 var is_win = (os.platform() === 'win32');
 var dir_script;
 var script = process.argv[2];
