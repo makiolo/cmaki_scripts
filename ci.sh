@@ -35,7 +35,8 @@ else
 	curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/bootstrap.sh | bash
 
 	echo [2/3] compile
-	./node_modules/cmaki_scripts/install.sh
+	./node_modules/cmaki_scripts/setup.sh
+	./node_modules/cmaki_scripts/compile.sh
 
 	echo [3/3] run tests
 	./node_modules/cmaki_scripts/test.sh
