@@ -11,7 +11,10 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	# cmake 3.5
 	wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
 	tar -zxvf cmake-3.7.2.tar.gz
-	cd cmake-3.7.2
+	if [[ -d "cmake-3.7.2" ]]; then
+		rm -Rf "cmake-3.7.2"
+	fi
+	cd "cmake-3.7.2"
 	CC=gcc CXX=g++ ./configure --prefix=/usr/local
 	make -j16
 	sudo make install
@@ -29,7 +32,6 @@ fi
 pip install --user pyyaml
 pip install --user poster
 pip install --user codecov
-
 
 export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
 export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
