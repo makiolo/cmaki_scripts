@@ -8,17 +8,29 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	sudo apt install -y lcov
 	sudo apt install -y cppcheck
 	sudo apt install -y g++
-	# cmake 3.5
-	wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
-	tar -zxvf cmake-3.7.2.tar.gz
-	if [[ -d "cmake-3.7.2" ]]; then
-		rm -Rf "cmake-3.7.2"
-	fi
-	cd "cmake-3.7.2"
-	CC=gcc CXX=g++ ./configure --prefix=/usr/local
-	make -j16
-	sudo make install
-	cd ..
+
+	# # cmake 3.5 from source
+	# wget https://cmake.org/files/v3.7/cmake-3.7.2.tar.gz
+	# tar -zxvf cmake-3.7.2.tar.gz
+	# if [[ -d "cmake-3.7.2" ]]; then
+	# 	rm -Rf "cmake-3.7.2"
+	# fi
+	# cd "cmake-3.7.2"
+	# CC=gcc CXX=g++ ./configure --prefix=/usr/local
+	# make -j16
+	# sudo make install
+	# cd ..
+
+	# cmake 3.5 precompiled
+	DEPS_DIR=$(pwd)/deps
+	CMAKE_FILE=cmake-3.5.2-Linux-x86_64.tar.gz
+	CMAKE_URL=http://www.cmake.org/files/v3.5/${CMAKE_FILE}
+	wget ${CMAKE_URL} --quiet --no-check-certificate
+	mkdir -p cmake
+	tar -xzf ${CMAKE_FILE} -C cmake --strip-components 1
+	mv cmake ${DEPS_DIR}
+	export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+	cmake --version
 else
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew update
