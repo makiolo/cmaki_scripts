@@ -56,10 +56,10 @@ process.argv.forEach(function(val, index, array)
 });
 environment_vars.forEach(function(val, index, array)
 {
-	console.log("--------------")
 	var chunks = val.split("=");
-	console.log(chunks);
-	console.log("--------------")
+	assert( chunks.length == 2 );
+	shelljs.env[chunks[0]] = chunks[1];
+	process.env[chunks[0]] = chunks[1];
 });
 
 var is_win = (os.platform() === 'win32');
