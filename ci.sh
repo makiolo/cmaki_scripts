@@ -81,7 +81,7 @@ else
 	./node_modules/cmaki_scripts/install.sh
 
 	echo [3/3] run tests
-	./node_modules/cmaki_scripts/tests.sh
+	./node_modules/cmaki_scripts/test.sh
 fi
 
 if [ -f "cmaki.yml" ]; then

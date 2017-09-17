@@ -40,7 +40,7 @@ if exist package.json (
   if %errorlevel% neq 0 exit /b %errorlevel%
 
   echo [3/3] run tests
-  call node_modules\cmaki_scripts\tests.cmd
+  call node_modules\cmaki_scripts\test.cmd
   if %errorlevel% neq 0 exit /b %errorlevel%
 
 )
