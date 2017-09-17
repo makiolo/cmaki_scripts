@@ -23,6 +23,9 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 
 	# cmake 3.5 precompiled
 	DEPS_DIR=$(pwd)/deps
+	if [[ -d "$DEPS_DIR" ]]; then
+		rm -Rf $DEPS_DIR
+	fi
 	CMAKE_FILE=cmake-3.5.2-Linux-x86_64.tar.gz
 	CMAKE_URL=http://www.cmake.org/files/v3.5/${CMAKE_FILE}
 	wget ${CMAKE_URL} --quiet --no-check-certificate
