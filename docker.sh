@@ -2,6 +2,9 @@
 export IMAGE="${IMAGE:-linux-x64}"
 export MODE="${MODE:-Debug}"
 
+if [[ -d dockcross ]]; then
+	rm -Rf dockcross
+fi
 git clone -q https://github.com/dockcross/dockcross.git
 docker run --rm dockcross/$IMAGE > ./dockcross-$IMAGE
 chmod +x ./dockcross-$IMAGE
