@@ -13,7 +13,7 @@ cd $COMPILER_BASENAME/$MODE
 
 # CORES=$(grep -c ^processor /proc/cpuinfo)
 CORES=12
-cmake --build . --config $MODE --target $CMAKI_TARGET -- -j$CORES -k VERBOSE=1 || cmake --build . --config $MODE --target install -- -j1 VERBOSE=1
+cmake --build . --config $MODE --target $CMAKI_TARGET -- -j$CORES -k VERBOSE=1 || cmake --build . --config $MODE --target $CMAKI_TARGET -- -j1 VERBOSE=1
 code=$?
 exit $code
 echo  ------------------- end compile.sh @ cmaki_scripts
