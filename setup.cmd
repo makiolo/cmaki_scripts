@@ -21,8 +21,12 @@ md %MODE%
 
 :: setup
 cd %MODE%
-IF DEFINED Configuration OR DEFINED Platform (
-    cmake .. -DCMAKE_BUILD_TYPE=%MODE% -G"%GENERATOR%"
+IF DEFINED Configuration (
+    IF DEFINED Platform (
+        cmake .. -DCMAKE_BUILD_TYPE=%MODE% -G"%GENERATOR%"
+    ) ELSE (
+        cmake .. -DCMAKE_BUILD_TYPE=%MODE%
+    )
 ) ELSE (
     cmake .. -DCMAKE_BUILD_TYPE=%MODE%
 )
