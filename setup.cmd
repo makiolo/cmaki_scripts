@@ -1,6 +1,7 @@
 @echo off
 
 setlocal enableextensions
+set CMAKI_PWD=%CMAKI_PWD%
 
 if "%Configuration%" == "Release" (
     set MODE=Release
@@ -20,11 +21,10 @@ md %MODE%
 
 :: setup
 cd %MODE%
-IF DEFINED NO_GENERATOR (
-    set CMAKI_PWD=%CMAKI_PWD%
-    cmake .. -DCMAKE_BUILD_TYPE=%MODE%
-) ELSE (
+IF DEFINED Configuration || DEFINED Platform (
     cmake .. -DCMAKE_BUILD_TYPE=%MODE% -G"%GENERATOR%"
+) ELSE (
+    cmake .. -DCMAKE_BUILD_TYPE=%MODE%
 )
 
 set lasterror=%errorlevel%
