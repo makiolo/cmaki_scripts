@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e
+export INSTALL_DEPENDS="${INSTALL_DEPENDS:-TRUE}"
 
-# hacerlo si no esto dentro de un contenedor docker que incluye cmaki_depends
-# sería bueno tener una variable para indicar que el entorno tiene las "cmaki_depends"
-curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/cmaki_depends.sh | bash
+if [ "$INSTALL_DEPENDS" = "TRUE" ]; then
+	# hacerlo si no esto dentro de un contenedor docker que incluye cmaki_depends
+	# sería bueno tener una variable para indicar que el entorno tiene las "cmaki_depends"
+	curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/cmaki_depends.sh | bash
+fi
 
 export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
 export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
