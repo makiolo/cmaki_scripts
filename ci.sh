@@ -21,7 +21,7 @@ if [ -f "package.json" ]; then
 	echo [1/3] prepare
 	# npm install -g npm-check-updates
 	# ncu -u
-	sudo npm cache clean --force
+	npm cache clean --force
 	# npm install https://github.com/makiolo/cmaki_scripts
 	# npm install https://github.com/makiolo/cmaki_identifier
 	# npm install https://github.com/makiolo/cmaki
