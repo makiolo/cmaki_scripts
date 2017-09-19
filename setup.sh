@@ -22,7 +22,7 @@ else
 	export CMAKE_TOOLCHAIN_FILE_FILEPATH=" -DCMAKE_TOOLCHAIN_FILE=$CMAKE_TOOLCHAIN_FILE"
 fi
 
-echo "running in mode $MODE ... ($COMPILER_BASENAME) $CC"
+echo "running in mode $MODE ... ($COMPILER_BASENAME) ($CC / $CXX)"
 if [ -f "CMakeCache.txt" ]; then
 	rm CMakeCache.txt
 fi
