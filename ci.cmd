@@ -13,7 +13,7 @@ if exist package.json (
   echo [1/3] prepare
   :: npm install -g npm-check-updates
   :: call ncu -u
-  npm cache clean
+  npm cache clean --force
   npm install https://github.com/makiolo/cmaki_scripts
   npm install https://github.com/makiolo/cmaki_identifier
   npm install https://github.com/makiolo/cmaki
