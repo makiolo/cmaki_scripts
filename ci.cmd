@@ -4,10 +4,8 @@ echo [0/3] preinstall
 set PATH=%CMAKI_PWD%\node_modules\cmaki_scripts;%PATH%
 env | sort
 
-pip install pyyaml
-if %errorlevel% neq 0 exit /b %errorlevel%
-
-pip install poster
+# TODO: condition with INSTALL_DEPENDS == TRUE
+powershell -c "$source = 'https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/cmaki_depends.cmd'; $dest = $env:TEMP + '\bootstrap.cmd'; $WebClient = New-Object System.Net.WebClient; $WebClient.DownloadFile($source,$dest); Invoke-Expression $dest"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 if exist package.json (
