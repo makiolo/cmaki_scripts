@@ -22,10 +22,10 @@ if [ -f "package.json" ]; then
 	# npm install -g npm-check-updates
 	# ncu -u
 	sudo npm cache clean --force
-	npm install https://github.com/makiolo/cmaki_scripts
-	npm install https://github.com/makiolo/cmaki_identifier
-	npm install https://github.com/makiolo/cmaki
-	npm install https://github.com/makiolo/cmaki_generator
+	# npm install https://github.com/makiolo/cmaki_scripts
+	# npm install https://github.com/makiolo/cmaki_identifier
+	# npm install https://github.com/makiolo/cmaki
+	# npm install https://github.com/makiolo/cmaki_generator
 
 	echo [2/3] compile
 	npm install --unsafe-perm
