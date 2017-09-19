@@ -8,6 +8,15 @@
   "bin": {
     "cmaki": "./cmaki.js"
   },
+  "scripts": {
+    "ci": "curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/ci.sh | bash",
+    "clean": "echo ok",
+    "setup": "echo ok",
+    "compile": "echo ok",
+    "install": "echo ok",
+    "test": "echo ok",
+    "upload": "echo ok"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/makiolo/cmaki_scripts.git"

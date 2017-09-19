@@ -4,10 +4,8 @@ echo [0/3] preinstall
 set PATH=%CMAKI_PWD%\node_modules\cmaki_scripts;%PATH%
 env | sort
 
-pip install pyyaml
-if %errorlevel% neq 0 exit /b %errorlevel%
-
-pip install poster
+# TODO: condition with INSTALL_DEPENDS == TRUE
+powershell -c "$source = 'https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/cmaki_depends.cmd'; $dest = $env:TEMP + '\bootstrap.cmd'; $WebClient = New-Object System.Net.WebClient; $WebClient.DownloadFile($source,$dest); Invoke-Expression $dest"
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 if exist package.json (
@@ -15,10 +13,11 @@ if exist package.json (
   echo [1/3] prepare
   :: npm install -g npm-check-updates
   :: call ncu -u
-  npm install https://github.com/makiolo/cmaki
-  npm install https://github.com/makiolo/cmaki_scripts
-  npm install https://github.com/makiolo/cmaki_generator
-  npm install https://github.com/makiolo/cmaki_identifier
+  npm cache clean --force
+  :: npm install https://github.com/makiolo/cmaki_scripts
+  :: npm install https://github.com/makiolo/cmaki_identifier
+  :: npm install https://github.com/makiolo/cmaki
+  :: npm install https://github.com/makiolo/cmaki_generator
   
   echo [2/3] compile
   npm install
