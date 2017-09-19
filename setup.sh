@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ls -ltr
+find ..
 
 echo  ------------------- begin setup.sh @ cmaki_scripts
 export CC="${CC:-gcc}"
