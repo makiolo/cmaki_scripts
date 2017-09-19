@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls -ltr
+
 echo  ------------------- begin setup.sh @ cmaki_scripts
 export CC="${CC:-gcc}"
 export CXX="${CXX:-g++}"
