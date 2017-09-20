@@ -12,6 +12,10 @@ export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
 export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
 env | sort
 
+if [[ -d "artifacts" ]]; then
+	rm -Rf artifacts
+fi
+
 if [[ -d "node_modules" ]]; then
 	rm -Rf node_modules
 fi
