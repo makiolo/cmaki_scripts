@@ -31,7 +31,6 @@ fi
 if [ -f "package.json" ]; then
 
 	echo [1/3] prepare
-	npm ls
 	# npm install -g npm-check-updates
 	# ncu -u
 	npm cache clean --force
@@ -43,6 +42,7 @@ if [ -f "package.json" ]; then
 	echo [2/3] compile
 	# npm install --unsafe-perm
 	npm install
+	npm ls
 
 	echo [3/3] run tests
 	npm test
