@@ -16,9 +16,18 @@ if [[ -d "node_modules" ]]; then
 	rm -Rf node_modules
 fi
 
+if [ -f "package-lock.json" ]; then
+	rm package-lock.json
+fi
+
+if [ -f "artifacts.json" ]; then
+	rm artifacts.json
+fi
+
 if [ -f "package.json" ]; then
 
 	echo [1/3] prepare
+	npm ls
 	# npm install -g npm-check-updates
 	# ncu -u
 	npm cache clean --force
