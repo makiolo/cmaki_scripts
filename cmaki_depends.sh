@@ -5,6 +5,7 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	sudo apt install -y nodejs
 	sudo apt install -y lcov
 	sudo apt install -y cppcheck
+	sudo apt install -y libxaw7-dev  # for OIS
   
 	# cmake 3.5 precompiled
 	DEPS_DIR=$(pwd)/deps
