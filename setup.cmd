@@ -1,8 +1,6 @@
 @echo off
 
 setlocal enableextensions
-echo CMAKI_PWD = %CMAKI_PWD%
-echo CMAKI_INSTALL = %CMAKI_INSTALL%
 
 if "%Configuration%" == "Release" (
     set MODE=Release
