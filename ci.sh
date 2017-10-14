@@ -33,9 +33,8 @@ fi
 if [ -f "package.json" ]; then
 
 	echo [1/3] prepare
-	# npm install -g npm-check-updates
-	# ncu -u
 	npm cache clean --force
+	rm -Rf $HOME/.npm
 
 	echo [2/3] compile
 	npm install
