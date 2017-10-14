@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
+export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
 
 # dentro de docker, por defecto, se instalan dependencias
 if [ -f /.dockerenv ]; then
@@ -14,11 +16,7 @@ if [ "$INSTALL_DEPENDS" = "TRUE" ]; then
 	curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/cmaki_depends.sh | bash
 fi
 
-export NOCACHE_LOCAL="${NOCACHE_LOCAL:-TRUE}"
-export NOCACHE_REMOTE="${NOCACHE_REMOTE:-FALSE}"
 env | sort
-
-# todo: use "npm run clean"
 
 if [[ -d "artifacts" ]]; then
 	rm -Rf artifacts
