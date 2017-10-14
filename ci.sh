@@ -34,7 +34,9 @@ if [ -f "package.json" ]; then
 
 	echo [1/3] prepare
 	npm cache clean --force
+	echo rm -Rf $HOME/.npm
 	rm -Rf $HOME/.npm
+	echo TODO: sudo rm -Rf /var/lib/jenkins/.npm
 
 	echo [2/3] compile
 	npm install
