@@ -1,6 +1,12 @@
 #!/bin/bash
 set -e
-export INSTALL_DEPENDS="${INSTALL_DEPENDS:-FALSE}"
+
+# dentro de docker, por defecto, se instalan dependencias
+if [ -f /.dockerenv ]; then
+	export INSTALL_DEPENDS="${INSTALL_DEPENDS:-TRUE}"
+else
+	export INSTALL_DEPENDS="${INSTALL_DEPENDS:-FALSE}"
+fi
 
 if [ "$INSTALL_DEPENDS" = "TRUE" ]; then
 	# hacerlo si no esto dentro de un contenedor docker que incluye cmaki_depends
