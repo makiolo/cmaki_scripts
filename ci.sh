@@ -39,7 +39,6 @@ if [ -f "package.json" ]; then
 	echo [1/3] prepare
 	npm cache clean --force
 	rm -Rf $HOME/.npm
-	npm run clean
 
 	echo [2/3] compile
 	npm install
