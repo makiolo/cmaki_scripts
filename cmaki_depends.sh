@@ -3,6 +3,7 @@
 if [[ "$OSTYPE" =~ ^linux ]]; then
 	curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 	sudo apt install -y nodejs
+	sudo npm install -g npm
 
 	# echo 'export PATH=$HOME/local/bin:$PATH' >> ~/.bashrc
 	# . ~/.bashrc
