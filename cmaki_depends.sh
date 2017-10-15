@@ -19,7 +19,8 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 	sudo apt install -y lcov
 	sudo apt install -y cppcheck
 	sudo apt install -y libxaw7-dev  # for OIS
-  
+	sudo apt install -y libgl1-mesa-dev # flow glew
+
 	# cmake 3.5 precompiled
 	DEPS_DIR=$(pwd)/deps
 	if [[ -d "$DEPS_DIR" ]]; then
