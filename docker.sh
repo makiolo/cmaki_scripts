@@ -13,11 +13,11 @@ if [ "$PACKAGE" == "undefined" ]; then
   ./makiolo-$IMAGE -a "-e MODE=$MODE -e NOCACHE_LOCAL=$NOCACHE_LOCAL -e NOCACHE_REMOTE=$NOCACHE_REMOTE -e INSTALL_DEPENDS=FALSE -e DEFAULT_DOCKCROSS_IMAGE=makiolo/$IMAGE" bash -c 'curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/ci.sh | bash'
 else
   # build package
-  ./makiolo-$IMAGE -a "-e MODE=$MODE -e NOCACHE_LOCAL=$NOCACHE_LOCAL -e NOCACHE_REMOTE=$NOCACHE_REMOTE -e INSTALL_DEPENDS=FALSE -e DEFAULT_DOCKCROSS_IMAGE=makiolo/$IMAGE -e PACKAGE=$PACKAGE" bash -c 'npm install && curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/make_artifact.sh | CMAKI_INSTALL=$(pwd)/bin bash'
+  ./makiolo-$IMAGE -a "-e MODE=$MODE -e NOCACHE_LOCAL=$NOCACHE_LOCAL -e NOCACHE_REMOTE=$NOCACHE_REMOTE -e INSTALL_DEPENDS=FALSE -e DEFAULT_DOCKCROSS_IMAGE=makiolo/$IMAGE -e PACKAGE=$PACKAGE" bash -c 'curl -s https://raw.githubusercontent.com/makiolo/cmaki_scripts/master/make_artifact.sh | CMAKI_INSTALL=$(pwd)/bin bash'
 fi
 error=$?
 
 # clean container
-docker rmi -f makiolo/$IMAGE
+# docker rmi -f makiolo/$IMAGE
 
 exit $error
