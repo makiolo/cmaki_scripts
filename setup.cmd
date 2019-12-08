@@ -8,10 +8,10 @@ if "%Configuration%" == "Release" (
     set MODE=Debug
 )
 
-if "%Platform%" == "x64" (
-    set GENERATOR=Visual Studio 14 2015 Win64
-) else (
+if "%Platform%" == "x86" (
     set GENERATOR=Visual Studio 14 2015
+) else (
+    set GENERATOR=Visual Studio 14 2015 Win64
 )
 
 echo running in mode %MODE% ...
@@ -20,9 +20,6 @@ md %MODE%
 
 :: setup
 cd %MODE%
-
-:: TODO:
-:: -DNOCACHE_REMOTE=$NOCACHE_REMOTE -DNOCACHE_LOCAL=$NOCACHE_LOCAL -DCOVERAGE=$COVERAGE -DTESTS_VALGRIND=$TESTS_VALGRIND
 
 IF DEFINED Configuration (
     IF DEFINED Platform (
